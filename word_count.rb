@@ -14,6 +14,7 @@ splitting_regex = /\&|\s+\-|\-\s+|\s+‘|’\s+|\s+\'|\'\s+|\s+|\s+|\(|\)|$|\.\s
 
 word_counter = Hash.new
 descriptions.downcase.split(splitting_regex).each do |word|
+  next if (word == "")
   if (word_counter[word].nil?)
     word_counter[word] = 1
   else
