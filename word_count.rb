@@ -25,4 +25,14 @@ word_counter.each do |word, count|
   countcsv << [word, count]
 end
 
+countcsv.close
+
+finished_csv = CSV.read("wordcount.csv")
+CSV.open("wordcount_sorted.csv", "w") do |out|
+  out << ['word','count']
+  finished_csv[1..-1].sort{|a,b| [a[1].to_i] <=> [b[1].to_i]}.reverse.each do |row|
+    out << row
+  end
+end
+
 textfile.close
