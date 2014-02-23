@@ -3,11 +3,11 @@
 require 'rubygems'
 require 'csv'
 
-textfile = File.open("descriptions.txt", "r")
+textfile = File.open("data_files/descriptions.txt", "r")
 stopfile = File.open("stopwords.txt", "r")
 stopwords = stopfile.read
 descriptions = textfile.read
-countcsv = CSV.open("wordcount.csv", "w")
+countcsv = CSV.open("data_files/wordcount.csv", "w")
 
 csv_header = ['word', 'count']
 countcsv << csv_header
@@ -30,8 +30,8 @@ end
 
 countcsv.close
 
-finished_csv = CSV.read("wordcount.csv")
-CSV.open("wordcount_sorted.csv", "w") do |out|
+finished_csv = CSV.read("data_files/wordcount.csv")
+CSV.open("data_files/wordcount_sorted.csv", "w") do |out|
   out << ['word','count']
   finished_csv[1..-1].sort{|a,b| [a[1].to_i] <=> [b[1].to_i]}.reverse.each do |row|
     out << row

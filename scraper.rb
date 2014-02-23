@@ -7,8 +7,8 @@ yc_page = Nokogiri::HTML(open("http://www.yclist.com/"))
 
 rows = yc_page.css('tbody tr')
 
-yc_csv = CSV.open("yclist.csv", "w")
-descriptions = File.new("descriptions.txt", "w")
+yc_csv = CSV.open("data_files/yclist.csv", "w")
+descriptions = File.new("data_files/descriptions.txt", "w")
 
 csv_header = ['name', 'url', 'class', 'status', 'description']
 yc_csv << csv_header
