@@ -4,6 +4,8 @@ require 'rubygems'
 require 'csv'
 
 textfile = File.open("descriptions.txt", "r")
+stopfile = File.open("stopwords.txt", "r")
+stopwords = stopfile.read
 descriptions = textfile.read
 countcsv = CSV.open("wordcount.csv", "w")
 
@@ -14,7 +16,7 @@ splitting_regex = /\&|\s+\-|\-\s+|\s+‘|’\s+|\s+\'|\'\s+|\s+|\s+|\(|\)|$|\.\s
 
 word_counter = Hash.new
 descriptions.downcase.split(splitting_regex).each do |word|
-  next if (word == "")
+  next if (word == "" || stopwords.include?(word))
   if (word_counter[word].nil?)
     word_counter[word] = 1
   else
@@ -37,3 +39,4 @@ CSV.open("wordcount_sorted.csv", "w") do |out|
 end
 
 textfile.close
+stopfile.close
