@@ -34,3 +34,5 @@ rows.each do |row|
   end
   yc_csv << csv_row
 end
+
+descriptions.close
