@@ -10,7 +10,7 @@ countcsv = CSV.open("wordcount.csv", "w")
 csv_header = ['word', 'count']
 countcsv << csv_header
 
-splitting_regex = /\&|\s+\-|\-\s+|\s+\'|\'\s+|\s+|\(|\)|$|\.\s+|,\s+|\.$|“|”/
+splitting_regex = /\&|\s+\-|\-\s+|\s+‘|’\s+|\s+\'|\'\s+|\s+|\s+|\(|\)|$|\.\s+|,\s+|\.$|“|”|"/
 
 word_counter = Hash.new
 descriptions.downcase.split(splitting_regex).each do |word|
