@@ -5,4 +5,4 @@ Scraping [this list](http://yclist.com/) of Y-Combinator companies. Both to help
 
 Stopwords from [here](http://jmlr.org/papers/volume5/lewis04a/a11-smart-stop-list/english.stop).
 
-Most frequent word visualization [here](http://ggruiz.me/plots-and-shenanigans/ycwordcloud/)
+Most frequent word visualization [here](http://ggruiz.me/plots-and-shenanigans/ycwordbutt/).
